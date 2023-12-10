@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+// import { getServerSession } from "next-auth";
+// import { authOptions } from "../api/auth/[...nextauth]/route";
 // import prisma from "@/app/libs/prisma";
 // import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 
 export default function Home() {
