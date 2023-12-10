@@ -8,11 +8,11 @@ import Image from 'next/image';
 
 export default function Home() {
     return (
-      <main className="bg-[#172554] h-screen w-screen">
-        <div className="w-screen flex flex-col">
-          <h1 className="text-4xl text-teal-100 font-bold my-0 text-center w-screen pt-20">Wecome to Quiz App</h1>
+      <main className="bg-[#172554] h-screen w-screen flex">
+        <div className="w-screen flex flex-col lg:justify-center lg:mb-20">
+          <h1 className="text-4xl lg:text-7xl text-teal-100 font-bold text-center mt-20 lg:mt-0">Welcome to Quiz App</h1>
           <Link href='/quiz' className="flex justify-center">
-            <button className="text-2xl w-screen text-center text-white bg-[#334155] w-fit px-40 py-2 mt-6 rounded hover:bg-sky-700">Start Quiz</button>
+            <button className="text-2xl lg:text-4xl w-fit text-center text-white bg-[#334155] px-40 py-2 px-6 mt-6 rounded hover:bg-sky-700">Start Quiz</button>
           </Link>
         </div>
       </main>

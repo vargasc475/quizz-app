@@ -57,54 +57,56 @@ const page = () => {
   return (
     <main className="bg-[#172554] h-screen w-screen">
       <div className="">
-      <h1 className="text-4xl text-teal-100 font-bold my-0 text-center w-screen pt-20">Quiz Page</h1>
+      <h1 className="text-4xl text-teal-100 font-bold my-0 text-center w-screen pt-20 lg:text-7xl lg:mb-4">Quiz Page</h1>
       <div className="w-screen flex justify-center text-white">
-        <h2>
+        <h2 className="lg:text-2xl">
           Question: {activeQuestion + 1}
           <span>/{questions.length}</span>
         </h2>
       </div>
       <div className="flex justify-center">
         {!showResult ? (
-          <div className="bg-white py-10 pl-20 pr-20 rounded list-none">
-            <h3 className="pb-5">{questions[activeQuestion].question}</h3>
+          <div className="bg-white py-10 pl-20 pr-20 rounded list-none lg:w-3/4 lg:h-96 lg:flex lg:flex-col">
+            <h3 className="pb-5 lg:text-3xl lg:font-bold">{questions[activeQuestion].question}</h3>
             {answers.map((answer, idx) => (
               <li
                 key={idx}
                 onClick={() => onAnswerSelected(answer, idx)}
-                className="py-2 pl-1 border-2 border-gray-300 focus:bg-black hover:border-blue-500 cursor-pointer rounded"
+                className={
+                  selectedAnswerIndex === idx ? 'bg-orange-200 rounded border-2 border-gray-300 mb-2 lg:text-2xl lg:w-3/6 lg:place-self-center lg:text-center' : 'lg:text-center lg:place-self-center lg:w-3/6 lg:text-2xl mb-2 border-2 border-gray-300 hover:border-blue-500 cursor-pointer rounded' 
+                } 
               >
                 <span>{answer}</span>
               </li>
             ))}
             {checked ? (
-              <button className="mt-5 py-2 pl-4 pr-4 text-white rounded bg-green-400" onClick={nextQuestion}>
+              <button className="mt-5 py-2 pl-4 pr-4 text-white rounded bg-green-400 lg:w-1/4 lg:place-self-center" onClick={nextQuestion}>
                 {activeQuestion === question.length - 1 ? 'Finish' : 'Next'}
               </button>
             ) : (
-              <button onClick={nextQuestion} disabled className="mt-5 py-2 pl-4 pr-4 text-white cursor-not-allowed bg-slate-700 rounded">
+              <button onClick={nextQuestion} disabled className="lg:w-1/4 lg:place-self-center lg:mt-5 py-2 pl-4 pr-4 text-white cursor-not-allowed bg-slate-700 rounded">
                 {' '}
                 {activeQuestion === question.length - 1 ? 'Finish' : 'Next'}
               </button>
             )}
           </div>
         ) : (
-          <div className="bg-white py-10 pl-12 pr-16 rounded list-none">
-            <h3 className="pb-4 underline text-2xl">Results</h3>
-            <h3>Overall {(result.score / 25) * 100}%</h3>
-            <p>
+          <div className="bg-white py-10 pl-12 pr-16 rounded list-none lg:w-2/4 lg:h-96 lg:flex lg:flex-col">
+            <h3 className="pb-4 underline text-2xl lg:text-3xl lg:font-bold">Results</h3>
+            <h3 className="lg:text-2xl lg:w-3/6">Overall {(result.score / 25) * 100}%</h3>
+            <p className="lg:text-2xl lg:w-3/6">
               Total Questions: <span>{questions.length}</span>
             </p>
-            <p>
+            <p className="lg:text-2xl lg:w-3/6">
               Total Score: <span>{result.score}</span>
             </p>
-            <p>
+            <p className="lg:text-2xl lg:w-3/6">
               Correct Answers: <span>{result.correctAnswers}</span>
             </p>
-            <p>
+            <p className="lg:text-2xl lg:w-3/6">
               Wrong Answers: <span>{result.wrongAnswers}</span>
             </p>
-            <button className="mt-5 py-2 pl-4 pr-4 text-white rounded bg-green-400" onClick={() => window.location.reload()}>Restart</button>
+            <button className="mt-5 py-2 pl-4 pr-4 text-white rounded bg-green-400 lg:w-1/4 lg:place-self-center" onClick={() => window.location.reload()}>Restart</button>
           </div>
         )}
       </div>

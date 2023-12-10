@@ -35,8 +35,9 @@ const LoginPage = () => {
   };  
 
   return (
-    <div>
-      <h3>Login Page</h3>
+    <main className="h-screen bg-green-400 flex justify-center">
+      <div className="text-center lg:w-screen lg:flex lg:flex-col">
+      <h3 className="text-4xl text-center my-10 lg:font-bold lg:text-6xl">Login Page</h3>
       {alert.message && 
         <div style={{ 
           color: alert.status === 'success' ? 'green' : 'red',
@@ -45,10 +46,10 @@ const LoginPage = () => {
           {alert.status === 'success' ? '✅' : '❌'} {alert.message}
         </div>
       }
-      <form onSubmit={onSubmit}> 
-        <div>
-          <label htmlFor="email">Email </label>
-          <input
+      <form onSubmit={onSubmit} className="bg-white py-5 px-10 rounded flex flex-col justify-center w-screen lg:w-2/5 lg:h-80 lg:p-0 lg:place-self-center lg:outline"> 
+        <div className="mb-3 flex flex-col lg:flex-row lg:place-self-center">
+          <label className="lg:text-2xl lg:mr-16 place-self-start" htmlFor="email">Email </label>
+          <input className="outline rounded lg:mr-12"
             onChange={onChange}
             value={loginData.email}
             type="email"
@@ -57,9 +58,9 @@ const LoginPage = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="password">Password </label>
-          <input
+        <div className="mb-3 flex flex-col lg:flex-row lg:place-self-center">
+          <label className="lg:text-2xl lg:mr-5 place-self-start" htmlFor="password">Password </label>
+          <input className="outline rounded lg:mr-12"
             onChange={onChange}
             value={loginData.password}
             type="password"
@@ -67,14 +68,17 @@ const LoginPage = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <div className="flex justify-center">
+          <button className="bg-[#172554] lg:text-2xl lg:mt-16 lg:hover:bg-blue-300 text-white rounded p-2 w-28 mt-6" type="submit">Login</button>
+        </div>
       </form>
-      <div>
+      <div className="text-center text-sm mt-2 lg:text-xl">
         Do not have an account?{" "}
-        <Link href="/auth/register">Create an account</Link>
+        <Link className="underline lg:hover:text-orange-700" href="/auth/register">Create an account</Link>
       </div>
-      <button onClick={() => signIn('google')}>Login with Google</button>
+      <button className="text-blue underline lg:text-xl lg:hover:text-orange-700" onClick={() => signIn('google')}>Login with Google</button>
     </div>
+    </main>
   );
 };
 

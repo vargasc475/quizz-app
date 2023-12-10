@@ -38,8 +38,9 @@ const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
   }
 
   return (
-    <><div>
-      <h3>Register Page</h3>
+    <main className="h-screen bg-green-400 flex items-center flex-col">
+      <div className="lg:w-screen lg:flex lg:flex-col">
+      <h3 className="text-4xl text-center my-10 lg:font-bold lg:text-6xl">Register Page</h3>
       {alert.message &&
         <div style={{
           color: alert.status === 'success' ? 'green' : 'red',
@@ -47,10 +48,10 @@ const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
         }}>
           {alert.status === 'success' ? '✅' : '❌'} {alert.message}
         </div>}
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
+      <form onSubmit={onSubmit} className="bg-white w-fit py-5 px-10 rounded flex flex-col justify-center lg:w-2/5 lg:h-80 lg:p-0 lg:place-self-center lg:outline">
+        <div className="lg:place-self-center mb-3">
+          <label className="lg:text-2xl mr-10 lg:mr-12" htmlFor="name">Name</label>
+          <input className="outline rounded"
             onChange={onChange}
             value={registerData.name}
             type="text"
@@ -58,9 +59,9 @@ const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
             required />
         </div>
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
+        <div className="lg:place-self-center mb-3">
+          <label className="lg:text-2xl mr-11 lg:mr-12 lg:pr-1" htmlFor="email">Email</label>
+          <input className="outline rounded"
             onChange={onChange}
             value={registerData.email}
             type="email"
@@ -68,21 +69,23 @@ const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
             required />
         </div>
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
+        <div className="lg:place-self-center mb-3">
+          <label className="lg:text-2xl mr-3" htmlFor="password">Password</label>
+          <input className="outline rounded"
             onChange={onChange}
             value={registerData.password}
             type="password"
             name="password"
             required />
         </div>
-        <button type="submit">Create account</button>
+        <button className="bg-[#172554] text-white rounded p-2 w-36 mt-6 place-self-center lg:text-2xl lg:mt-12 lg:w-fit lg:px-4 lg:hover:bg-blue-300" type="submit">Create account</button>
       </form>
-      <div>
-        Already have an account? <Link href="/auth/login">Login here</Link>
+      <div className="text-center lg:text-xl lg:mt-4">
+        Already have an account? <Link className="underline lg:hover:text-orange-700" href="/auth/login">Login here</Link>
       </div>
-    </div><button onClick={() => signIn('google')}>Login with Google</button></>
+    </div>
+    <button className="underline lg:text-xl lg:hover:text-orange-700" onClick={() => signIn('google')}>Login with Google</button>
+    </main>
   );
 };
 
