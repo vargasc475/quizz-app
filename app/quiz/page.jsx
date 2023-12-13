@@ -68,6 +68,7 @@ const page = () => {
         {!showResult ? (
           <div className="bg-white py-10 pl-20 pr-20 rounded list-none lg:w-3/4 lg:h-96 lg:flex lg:flex-col">
             <h3 className="pb-5 lg:text-3xl lg:font-bold">{questions[activeQuestion].question}</h3>
+            <ul className="place-self-center w-screen flex flex-col">
             {answers.map((answer, idx) => (
               <li
                 key={idx}
@@ -79,6 +80,7 @@ const page = () => {
                 <span>{answer}</span>
               </li>
             ))}
+            </ul>
             {checked ? (
               <button className="mt-5 py-2 pl-4 pr-4 text-white rounded bg-green-400 lg:w-1/4 lg:place-self-center" onClick={nextQuestion}>
                 {activeQuestion === question.length - 1 ? 'Finish' : 'Next'}
